@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Tic Tac Toe</h1>
+
+<div id="controls">
+  <label>Gegner:
+    <select id="mode">
+      <option value="human">Spieler</option>
+      <option value="cpu">Computer</option>
+    </select>
+  </label>
+
+  <label>Schwierigkeit:
+    <select id="difficulty">
+      <option value="easy">Leicht</option>
+      <option value="medium">Mittel</option>
+      <option value="hard">Schwer</option>
+    </select>
+  </label>
+
+  <button id="restart">Neu starten</button>
+</div>
+
+<div id="board"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
