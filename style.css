@@ -3,6 +3,10 @@ body {
   text-align: center;
   margin-top: 40px;
 }
+body {
+  background: yellow;
+}
+
 
 #controls {
   margin-bottom: 20px;
