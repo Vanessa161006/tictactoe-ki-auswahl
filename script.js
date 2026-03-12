@@ -46,7 +46,7 @@ function onCellClick(e) {
 
   currentPlayer = currentPlayer === "X" ? "O" : "X";
 
-  if (modeSelect.value === "cpu" && currentPlayer === "Y") {
+  if (modeSelect.value === "cpu" && currentPlayer === "O") {
     setTimeout(cpuMove, 300);
   }
 }
@@ -66,10 +66,10 @@ function cpuMove() {
       break;
   }
 
-  board[move] = "Y";
+  board[move] = "O";
   render();
 
-  if (checkWin("Y")) {
+  if (checkWin("O")) {
     alert("Computer gewinnt!");
     gameOver = true;
     return;
