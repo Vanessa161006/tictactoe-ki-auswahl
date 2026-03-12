@@ -44,7 +44,7 @@ function onCellClick(e) {
     return;
   }
 
-  currentPlayer = currentPlayer === "X" ? "Y" : "X";
+  currentPlayer = currentPlayer === "X" ? "O" : "X";
 
   if (modeSelect.value === "cpu" && currentPlayer === "Y") {
     setTimeout(cpuMove, 300);
@@ -62,7 +62,7 @@ function cpuMove() {
       move = mediumMove();
       break;
     case "hard":
-      move = minimax(board, "Y").index;
+      move = minimax(board, "O").index;
       break;
   }
 
@@ -93,8 +93,8 @@ function mediumMove() {
   // 1. Kann CPU gewinnen?
   for (let i=0;i<9;i++) {
     if (board[i]==="") {
-      board[i]="Y";
-      if (checkWin("Y")) { board[i]=""; return i; }
+      board[i]="O";
+      if (checkWin("O")) { board[i]=""; return i; }
       board[i]="";
     }
   }
@@ -114,7 +114,7 @@ function minimax(newBoard, player) {
   const empty = newBoard.map((v,i)=>v===""?i:null).filter(v=>v!==null);
 
   if (checkWin("X", newBoard)) return { score: -10 };
-  if (checkWin("Y", newBoard)) return { score: 10 };
+  if (checkWin("O", newBoard)) return { score: 10 };
   if (empty.length === 0) return { score: 0 };
 
   const moves = [];
@@ -124,11 +124,11 @@ function minimax(newBoard, player) {
     move.index = i;
     newBoard[i] = player;
 
-    if (player === "Y") {
+    if (player === "O") {
       const result = minimax(newBoard, "X");
       move.score = result.score;
     } else {
-      const result = minimax(newBoard, "Y");
+      const result = minimax(newBoard, "O");
       move.score = result.score;
     }
 
@@ -137,7 +137,7 @@ function minimax(newBoard, player) {
   }
 
   let bestMove;
-  if (player === "Y") {
+  if (player === "O") {
     bestMove = moves.reduce((a,b)=>a.score>b.score?a:b);
   } else {
     bestMove = moves.reduce((a,b)=>a.score<b.score?a:b);
