@@ -34,3 +34,17 @@ body {
   background: #ddd;
 }
 
+#restart {
+  background-color: pink !important;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+#restart:hover {
+  background-color: hotpink !important;
+  color: white;
+}
